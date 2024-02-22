@@ -127,8 +127,8 @@ sa1s_in_lga['color'] = sa1s_in_lga['color'].apply(fill_nan_with_black)
 
 # Map the 'segment' column to the 'color' column using the rgb_mapping
 # st.write(sa2s_in_lga.head(10))
-columns = st.columns([3,6])
-with columns[0]:
+columns = st.columns([3,3,3,3])
+with columns[1]:
     opacity = st.slider("Select Opacity", 0.0, 1.0, 0.5)
 
 
