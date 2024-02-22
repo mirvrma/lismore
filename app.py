@@ -261,6 +261,7 @@ def get_attributes(sheet_name):
     for col in cols:
         df[col]=df[col].astype(float)
         df[col]=round(df[col]/100,2)
+        
        
     # df = df.iloc[:, :11]
     # Define custom coloring function
@@ -294,34 +295,38 @@ def get_attributes(sheet_name):
             return no_color
 
     # Apply the custom coloring function to the DataFrame
-    styled_df = df.style.applymap(color_cells, subset=cols)
+    styled_df = df.style.applymap(color_cells, subset=cols).format(precision=2)
+    
+
 
     # Display the styled DataFrame
-    st.dataframe(styled_df)
+    st.dataframe(styled_df,use_container_width=True)
 
-st.subheader("Occupations")
-get_attributes('Occupations')
+columns = st.columns([2,8,2])
+with columns[1]:
+    st.subheader("Occupations")
+    get_attributes('Occupations')
 
-st.subheader("Characteristics of people")
-get_attributes('Person')
+    st.subheader("Characteristics of people")
+    get_attributes('Person')
 
-st.subheader("Characteristics of families")
-get_attributes('Family')
+    st.subheader("Characteristics of families")
+    get_attributes('Family')
 
-st.subheader("Birthplace")
-get_attributes('Birthplace')
+    st.subheader("Birthplace")
+    get_attributes('Birthplace')
 
-st.subheader("Field of study")
-get_attributes('Field of study')
+    st.subheader("Field of study")
+    get_attributes('Field of study')
 
 
-st.subheader("Education attained")
-get_attributes('Ed attained')
+    st.subheader("Education attained")
+    get_attributes('Ed attained')
 
-st.subheader("Ancestry")
-get_attributes('Sheet8 (2)')
+    st.subheader("Ancestry")
+    get_attributes('Sheet8 (2)')
 
-st.subheader("Work hours")
-get_attributes('work hours')
+    st.subheader("Work hours")
+    get_attributes('work hours')
 
 
