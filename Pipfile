@@ -11,7 +11,7 @@ matplotlib = "3.4.2"
 
 openpyxl = "3.1.2"
 
-
+seaborn = "0.13.2"
 pygeos = "0.14"
 
 shapely = "*"
